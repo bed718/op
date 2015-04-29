@@ -1,0 +1,8 @@
+filename = "Hatfield039s-2013-11-14T11-16-18"
+description = ""
+datestamp = "1384456580"
+generator = "Backup and Migrate (http://drupal.org/project/backup_migrate)"
+generatorversion = "7.x-2.x"
+sites[0][version] = "7.23"
+sites[0][name] = "Hatfield's"
+sites[0][url] = "http://hatfields.dev/"

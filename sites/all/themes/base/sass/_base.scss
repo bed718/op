@@ -1,0 +1,109 @@
+/* VARS 
+-------------------------------------------------------------- */
+$main_width:      1200px;
+$body_pad:			20px;
+$gutter:				20px;
+$header_height:	50px;
+$page_header_h:	500px;
+
+$bp_lg:           1400px;
+$bp_med:          900px;
+$bp_sm:           700px;
+
+/*  COLORS  */
+$color_main:         #4e4338;                  
+$color_accent:       #cc8025;              
+$color_main_lt:      #999;
+$color_error:        #b54747;
+$color_warning:      #f0da72;
+
+$page_bg:            #d4c7a9; 
+$page_med:           darken($page_bg, 5%);
+$page_lt:            #405858;
+$page_dark:          #2b3232;
+
+/*  TYPOGROPHY */
+$font_main:					'LatoLight', sans-serif;
+$font_fancy:				'LatoBold', sans-serif;
+$font_header:        	'special_eliteregular', serif;
+
+$font_weight_lt:         100;
+$font_weight_reg:        400;
+$font_weight_bold:       700;
+
+/*  TRANSITIONS  */
+$trans:	  					.3s;
+$default-transition-property : all;
+$default-transition-duration : .3s;
+$default-transition-function : false;
+$default-transition-delay    : false;
+
+$default-box-shadow-color: #88795a;
+$default-box-shadow-h-offset: 0px;
+$default-box-shadow-v-offset: 0px;
+$default-box-shadow-blur: 3px;
+
+/* MIX-INS 
+-------------------------------------------------------------- */
+@mixin bp($point) {
+  @if $point == l {
+    @media (max-width: $bp_lg) { @content; }
+  }
+  @else if $point == m {
+    @media (max-width: $bp_med) { @content; }
+  }
+  @else if $point == s {
+    @media (max-width: $bp_sm)  { @content; }
+  }
+}
+
+@mixin bg_full($url){
+	background: url($url) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  @include bp(s){
+  	background: url($url) no-repeat center center; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+}
+
+
+
+/* PLACEHOLDERS & EXTENDS
+-------------------------------------------------------------- */
+%ul-styled{
+   
+   li{
+   	margin-bottom: .5em;
+   	list-style: circle;
+   	margin-left: 16px;
+   } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

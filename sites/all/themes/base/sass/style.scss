@@ -1,0 +1,773 @@
+@import "compass";
+@import "_reset";
+@import "_fonts";
+@import "_icons";
+@import "_base";
+
+/* BASIC STYLES
+-------------------------------------------------------------- */
+*{
+  @include box-sizing('border-box');
+
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+body{
+  font: 16px/1.5 $font_main;
+  background-color: $page_bg;  
+  color: $color_main;
+}
+
+a{
+  @include transition;
+  color: $color_accent;
+  text-decoration: none;
+  
+  &:hover{
+    color: $color_main;
+  }
+}
+
+p{
+  margin-bottom: 20px;
+}
+
+
+ul,
+ul.menu,
+ul.menu li{
+  list-style: none; 
+  text-align: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+li a.active,
+li.opened span.nolink{color: $color_main;}
+
+h2{
+  font-family: $font_header;
+  font-size: 2em;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h3{
+  font-family: "LatoBold";
+  text-transform: uppercase;
+  font-size: .8em;
+  letter-spacing: 4px;
+}
+
+li + h3{
+  margin-top: 20px;
+}
+
+.divider{
+  width: 100px;
+  background-color: $color_accent;
+  height: 2px;
+  margin: 80px auto 0;
+  display: block;
+}
+
+/* Layout
+-------------------------------------------------------------- */
+#header-nav{
+  
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  width: 100%;
+  height: $header_height;
+  line-height: $header_height;
+  margin-top: - $header_height / 2;
+  margin-bottom: - $header_height / 2;
+  padding: 0 40px;
+
+  .inner{
+    position: relative;
+    background-image: url(../images/O+P-bg-accent.jpg); 
+  }
+
+  @include bp(m){
+    position: relative;
+    text-align: center;
+    height: auto;
+  }
+
+  @include bp(m){
+    position: fixed;
+    top: 15px;
+    margin-top: 0;
+  }
+
+}
+
+#header-info{
+  
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: $header_height / 2;
+  line-height: $header_height / 2;
+
+  // margin-bottom: - $header_height / 2;
+  padding: 0 40px;
+
+  .inner{
+    position: relative;
+    background-image: url(../images/O+P-bg-dk.jpg); 
+  }
+
+    li{
+      @include inline-block;
+      padding-right: $gutter;
+      font-family: $font_fancy;
+      letter-spacing: 2px;
+      font-size: .7em;
+      color: lighten($color_main, 20%);
+      text-transform: uppercase;
+
+      &:after,
+      &.first:before{
+        content: "•";
+        font-size: .4em;
+        line-height: 20px;
+        text-decoration: none !important;
+        display: inline;
+        position: relative;
+        margin-left: $gutter;
+        top: -2px;
+      }
+
+       &.first:before{
+          padding-right: $gutter;
+       }
+    }
+
+    .email{
+       color: lighten($color_main, 20%);
+
+       &:hover{
+        color: $color_accent;
+       }
+    }
+
+    ul{
+      text-align: center !important;
+    }
+
+  @include bp(s){
+    position: relative;
+    text-align: center;
+    height: auto;
+    padding: 0;
+
+    .inner{
+       padding: 10px 0;
+    }
+
+    li{
+      padding: 5px 0;
+      display: block;
+      line-height: normal;
+
+      &:after,
+      &.first:before{
+        content: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+}
+
+body.nav-top{
+
+  #header-nav{
+    position: fixed;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+#nav-main{
+  @include pie-clearfix;
+  text-transform: uppercase;
+
+  @include bp(m){
+    display: none;
+  }
+
+  ul.menu{
+    text-align: center !important;
+
+    li{
+      display: inline-block;
+
+      &:after,
+      &.first:before{
+        content: "•";
+        font-size: .4em;
+        line-height: 20px;
+        text-decoration: none !important;
+        display: inline;
+        color: #fff;
+        position: relative;
+        top: -2px;
+      }
+    }
+
+
+
+    a{
+      @include inline-block;
+      padding-left: $gutter;
+      padding-right: $gutter;
+      color: #fff;
+      font-family: $font_fancy;
+      letter-spacing: 4px;
+      font-size: .8em;
+
+      &:hover{
+        text-decoration: underline;
+      }
+
+      &.active{
+        text-decoration: underline;
+      }
+
+
+    }
+
+    @include bp(m){
+      text-align: center !important;
+
+      li{
+        display: block;
+        line-height: normal;
+        padding: 10px 0;
+
+        &:after,
+        &.first:before{
+          content: none;
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      
+
+      a{
+        line-height: normal;
+      }
+
+
+
+    }
+  }
+
+  .social-icons{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    a{
+      padding-left: $gutter / 2;
+      padding-right: $gutter / 2;
+      color: #fff;
+    }
+
+    @include bp(m){
+      position: relative;
+    }
+  }
+}
+
+
+.menu-toggle{
+  @include transition;
+  position: absolute;
+  background: url(../images/O+P-bg-accent.jpg);
+  z-index: 900;
+  display: none;
+  top: 0;
+  right: -25px;
+  background-color: $color_accent;
+  color: #fff;
+  width: $header_height;
+  height: $header_height;
+  line-height: $header_height;
+  text-align: center;
+  font-size: 2em;
+  cursor: pointer;
+
+  &:hover{
+    background-color: $color_main;
+  }
+
+  @include bp(m){
+     display: block;
+  }
+}
+
+#content-main{
+  position: relative;
+  background: url(../images/O+P-bg-main.jpg);
+  z-index: 20;
+  padding-top: $header_height / 2;
+  
+  @include bp(s){
+    padding-top: 0;
+  }
+
+}
+
+#footer-main{
+  background: url(../images/O+P-bg-dk.jpg);
+  // left: 0;
+  // bottom: 0;
+  // right: 0;
+  // height: 400px;
+  // position: fixed;
+  z-index: 10;
+  position: relative;
+}
+
+.copy{
+  padding: 20px;
+  text-align: center;
+  font-size: .8em;
+  text-transform: uppercase;
+}
+
+.panel-pane{
+  padding: 0 40px;
+
+  @include bp(s){
+    padding:0 20px;
+  }
+}
+
+.side-left{
+  max-width: 1200px;
+  margin: auto;
+
+  .main{
+    float: left;
+    width: 60%;
+    padding-left: 40px;
+  }
+
+  .side{
+    float: left;
+    width: 40%;
+
+    margin-top: -40px;
+
+    background: url(../images/O+P-bg-dk.jpg);
+    padding: 40px;
+
+    @include bp(s){
+    padding: 20px;
+  }
+  }
+
+  @include bp(m){
+
+    .main,
+    .side{
+      float: none;
+      width: 100%;
+    }
+
+    .main{
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .side{
+      margin-top: 0;
+    }
+  }
+}
+
+.bg-dark{
+  background: url(../images/O+P-bg-dk.jpg);
+  padding: 40px;
+}
+
+
+/* About
+-------------------------------------------------------------- */
+#about{
+  max-width: 650px;
+  margin: auto;
+  padding: 80px 0;
+
+  p{
+    text-align: justify;
+  }
+
+  @include bp(s){
+    padding: 20px 0;
+  }
+}
+
+.quote{
+  margin-bottom: 30px;
+  margin-top: 40px;
+
+  p{
+    text-align: left !important;
+    font-size: 1.4em;
+    margin-bottom: 0;
+    color: $color_accent;
+  }
+
+  .author{
+    text-transform: uppercase;
+    text-align: right;
+    font-size: .8em;
+  }
+}
+
+
+/* Press
+-------------------------------------------------------------- */
+.view-press{
+  padding: 80px 0;
+  max-width: 800px;
+  margin: auto;
+
+  @include bp(s){
+    padding: 20px 0;
+  }
+}
+
+.press{
+  width: 48%;
+  margin: 1%;
+  border: $color_accent dashed 2px;
+  padding: 40px;
+  text-align: center;
+
+  .stars{
+    margin-bottom: 20px;
+    color: $color_accent;
+
+    span{
+      padding: 0 5px;
+
+    }
+  }
+  
+  @include bp(s){
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 20px;
+  }
+}
+
+
+/* Info
+-------------------------------------------------------------- */
+
+#info,
+.side-left{
+  @include pie-clearfix;
+  padding: 80px 0;
+
+  .side{
+
+    ul{
+      @extend %ul-styled;
+    }
+
+    @include bp(m){
+      margin-bottom: 40px;
+    }
+  }
+
+  @include bp(s){
+    padding: 20px 0;
+  }
+}
+
+.location-info{
+  margin-bottom: 40px;
+
+  h2{
+    font-size: 1em;
+  }
+
+  ul{
+    @extend %ul-styled;
+  }
+}
+
+.map{
+  @include box-shadow;
+  // border: $color_accent solid 5px;
+  line-height: 0;
+}
+
+
+/* Image Style
+-------------------------------------------------------------- */
+.image-left{
+  margin: 40px 40px 40px -120px;
+  float: left;
+  max-width: 470px;
+  line-height: 0;
+  
+  @include bp(m){
+    margin-left: 0;
+    max-width: 300px;
+  }
+}
+
+.image-right{
+  margin: 40px -120px 40px 40px;
+  float: right;
+  max-width: 470px;
+  line-height: 0;
+
+  @include bp(m){
+    margin-right: 0;
+    max-width: 300px;
+  }
+}
+
+.image-left,
+.image-right{
+  @include bp(s){
+      margin: 20px auto;
+      max-width: 80%;
+      display: block;
+      text-align: center;
+      float: none;
+    }
+}
+
+.image-center{
+  margin: 40px auto;
+  max-width: 450px;
+  line-height: 0;
+}
+
+
+/* Header Image
+-------------------------------------------------------------- */
+#header{
+  position: relative;
+  width: 100%;
+  height: 70vh;
+
+  @include bp(s){
+    height: 40vh;
+  }
+}
+
+#logo{
+  z-index: 100;
+  position: absolute;
+  display: table;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+
+  .inner{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  img{
+    max-width: 800px;
+
+    @include bp(s){
+      max-width: 80%;
+      margin-top: 20px;
+    }
+  }
+}
+
+.tri-down{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  opacity: .9;
+
+  @include bp(s){
+    top: -80px; 
+  }
+}
+
+#bg-image{
+  position: fixed;
+   width: 100%;
+  height: 70vh;
+  z-index: 1;
+ 
+
+  background: url(../images/header/O+P-inside-1.jpg) no-repeat center center ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+   
+
+}
+
+.front .bg-image{
+   @include bg_full('../images/header/O+P-inside-1.jpg');
+}
+
+.page-info .bg-image{
+   @include bg_full('../images/header/O+P-food-1.jpg');
+}
+
+.page-press .bg-image{
+   @include bg_full('../images/header/O+P-food-2.jpg');
+}
+
+#menu-header,
+#press-header,
+#info-header{
+  position: relative;
+  width: 100%;
+  height: $page_header_h;
+  text-align: center;
+  color: #fff;
+  font-family: "LatoLight";
+  font-size: 4em;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  display: table;
+
+  .pane-content{
+    display: table-cell;
+    vertical-align: middle;
+
+  }
+
+  span{
+    width: 100px;
+    background-color: #fff;
+    height: 2px;
+    margin: 20px auto;
+    display: block;
+  }
+
+  @include bp(s){
+    font-size: 2em;
+    height: 250px;
+  }
+}
+
+#menu-header{
+  @include bg_full('../images/header/O+P-food-1.jpg');
+}
+
+#press-header{
+  @include bg_full('../images/header/O+P-meat-1.jpg');
+}
+
+#info-header{
+  @include bg_full('../images/header/O+P-bar-1.jpg');
+}
+
+
+
+/* MENU
+-------------------------------------------------------------- */
+.view-today-s-menu{
+  padding: 80px 0;
+
+  @include bp(s){
+    padding: 20px 0;
+  }
+}
+
+.field-name-field-menu-section,
+.view-today-s-menu .views-row{
+  border: $color_main solid 2px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+
+  .views-field-title{
+    margin-top: 40px;
+  }
+
+  .field-name-body{
+    padding: 10px 40px 40px;
+  }
+
+  @include bp(s){
+     margin: 0 auto 20px;
+
+     .field-name-body{
+      padding: 10px 20px 20px;
+    }
+  }
+}
+
+#menu-details{
+  background: url(../images/O+P-bg-dk.jpg);
+  padding: 40px;
+  text-align: center;
+
+  p{
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.field-name-field-menu-section-title{
+  font-family: $font_header;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.field-name-field-menu-item{
+  margin-bottom: $gutter;
+}
+
+.field-name-field-menu-item-description{
+  display: inline;
+}
+
+.krumo-root{
+  z-index: 1000;
+}
+
+.service-links{
+
+  li{
+    @include inline-block;
+  }
+}
+
+
+.scrolloff {
+        pointer-events: none;
+    }
+
+
+
+
+
