@@ -14,9 +14,9 @@
 				<ul class="menu">
 					<li class="first"><a href="#about" data-scroll-nav="0" >About O+P</a></li>
 					<li><a href="" data-scroll-nav="1" >Menu</a></li>
-					<li><a href="" data-scroll-nav="2" >Press</a></li>
-					<li><a href="" data-scroll-nav="3" >Info</a></li>
-					<li><a href="" >Reservations</a></li>
+					<li><a href="" data-scroll-nav="2" >Info</a></li>
+					<li><a href="" data-scroll-nav="3" >Press</a></li>
+					<li><a href="http://www.opentable.com/odys-and-penelope?rid=157297&restref=157297" target="_blank" >Reservations</a></li>
 				</ul>
 				<div class="social-icons">
 					<a href="http://twitter.com/" class="icon-twitter" target="_blank"></a>
@@ -37,7 +37,7 @@
 		<ul>
 			<li class="first">(323) 939-1033</li>
 			<li><a href="mailto:info@odysandpenelope.com" class="email">info@odysandpenelope.com</a></li>
-			<li>127 S La Brea Ave. <a href="">Directions</a> </li>
+			<li>127 S La Brea Ave. <a href="https://www.google.com/maps?ll=34.072701,-118.344364&z=16&t=m&hl=en-US&gl=US&mapclient=embed&cid=14003054770592658096" target="_blank">Directions</a> </li>
 		</ul>
 	</div>
 </div>

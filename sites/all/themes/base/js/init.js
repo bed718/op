@@ -14,8 +14,8 @@ Drupal.behaviors.init = {
 	 			.attr('data-top-bottom', 'background-position: 50% -100px;');
 
 	 		$('#menu-header').attr('data-scroll-index', '1');
-	 		$('#press-header').attr('data-scroll-index', '2');
-	 		$('#info-header').attr('data-scroll-index', '3');
+	 		$('#press-header').attr('data-scroll-index', '3');
+	 		$('#info-header').attr('data-scroll-index', '2');
 	 		$('#about').attr('data-scroll-index', '0');
 
 
