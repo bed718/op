@@ -83,7 +83,16 @@ function base_preprocess_node(&$vars){
 
 		}
 
-		//dpm($vars);
+		if($vars['view_mode'] == 'teaser'){
+			if(isset($vars['field_author_source']) && isset($vars['field_author_source'][0])){
+				$source = $vars['field_author_source'][0]['url'];
+				$vars['title_link'] = l(html_entity_decode($vars['node']->title), $source, array('html' => TRUE));
+			}else{
+				$vars['title_link'] = $vars['node']->title;
+			}
+		}
+
+		//dpm($vars['node']);
 	}
 
 
