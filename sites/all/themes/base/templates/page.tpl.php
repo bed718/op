@@ -2,8 +2,8 @@
 
 <div id="header">
 	<div class="inner">
-		<div class="tri-down"><img src="/op/<?php echo path_to_theme(); ?>/images/O+P-tri-down.png" alt=""></div>
-		<div id="logo"><div class="inner"><a href="/"><img src="/op/<?php echo path_to_theme(); ?>/images/O+P-logo.svg" alt=""></a></div></div>
+		<div class="tri-down"><img src="/<?php echo path_to_theme(); ?>/images/O+P-tri-down.png" alt=""></div>
+		<div id="logo"><div class="inner"><a href="/"><img src="/<?php echo path_to_theme(); ?>/images/O+P-logo.svg" alt=""></a></div></div>
 	</div>
 </div>
 
