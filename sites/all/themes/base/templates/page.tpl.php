@@ -18,12 +18,12 @@
 					<li><a href="" data-scroll-nav="3" >Press</a></li>
 					<li><a href="http://www.opentable.com/odys-and-penelope?rid=157297&restref=157297" target="_blank" >Reservations</a></li>
 				</ul>
-				<!-- 
+				
 				<div class="social-icons">
-					<a href="http://twitter.com/" class="icon-twitter" target="_blank"></a>
-					<a href="http://instagram.com/" class="icon-instagram" target="_blank"></a>
-					<a href="http://pinterest" class="icon-pinterest" target="_blank"></a>
-				</div>  --> <!-- END .social-icons -->
+					<!-- <a href="http://twitter.com/" class="icon-twitter" target="_blank"></a> -->
+					<a href="http://instagram.com/Odys_penelope" class="icon-instagram" target="_blank"></a>
+					<!-- <a href="http://pinterest" class="icon-pinterest" target="_blank"></a> -->
+				</div>  <!-- END .social-icons -->
 		</nav> <!-- END #nav -->
 
 		<div class="menu-toggle icon-list"></div>
